@@ -24,5 +24,5 @@ jobs:
 
       - name: Build and push Spring Boot image
         run: |
-          docker build -t cyrine987/springboot-app:1.0 .
-          docker push cyrine987/springboot-app:1.0
+          docker build -t mezzicyrine027/springboot-app:1.0 .
+          docker push mezzicyrine027/springboot-app:1.0
