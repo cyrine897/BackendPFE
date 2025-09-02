@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven399' 
+    }
+
+    stages {
+        stage('GIT Checkout') {
+            steps {
+                echo " Getting Project DevOps from Git"
+                git branch: 'source', credentialsId: 'GitHubToken', url: 'https://github.com/cyrine897/StagePFE.git'
+            }
+        }
+
+        stage('Get MVN Version') {
+            steps {
+                echo "Running Maven Version"
+                sh 'mvn --version' 
+            }
+        }
+    }
+}

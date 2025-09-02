@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-app
+  template:
+    metadata:
+      labels:
+        app: springboot-app
+    spec:
+      imagePullSecrets:
+        - name: acr-secret
+      initContainers:
+        - name: wait-for-mysql
+          image: busybox
+          command: ['sh', '-c', 'until nc -z mysql-service 3306; do echo waiting for mysql; sleep 2; done;']
+      containers:
+        - name: springboot-container
+          image: containerregisterypfe1.azurecr.io/springboot-app:v5
+          ports:
+            - containerPort: 8089
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:mysql://mysql-service:3306/SahtyApp?useSSL=false&serverTimezone=UTC
+            - name: SPRING_DATASOURCE_USERNAME
+              value: root
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: ""   # mot de passe vide
+          
+
+

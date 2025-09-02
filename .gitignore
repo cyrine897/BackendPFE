@@ -1,0 +1,42 @@
+# Ignorer le répertoire target principal
+/target/
+
+# Inclure ce JAR spécifique (si nécessaire, décommente)
+/!target/SahtyApp1-0.0.1-SNAPSHOT.jar
+
+# Maven wrapper (laisser ce fichier important)
+!.mvn/wrapper/maven-wrapper.jar
+
+# Inclure les sous-répertoires target dans src (nécessaire pour certains cas)
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS (Spring Tool Suite) ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Ignorer build sauf dans src
+/build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
