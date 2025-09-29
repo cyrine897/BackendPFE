@@ -65,7 +65,8 @@ public class DossierMedicaleServiceImplTest {
             assertThrows(EntityNotFoundException.class, () -> dossierMedicaleService.getDossierMedicalByEmail("notfound@example.com"));
         }
 
-        @Test
+        
+@Test
         void testDownloadFiles_returnsList() {
             DossierMedical doss = new DossierMedical();
             doss.setDossierMedical(new byte[]{1, 2, 3});
@@ -75,7 +76,6 @@ public class DossierMedicaleServiceImplTest {
             assertEquals(1, result.size());
             assertArrayEquals(new byte[]{1, 2, 3}, result.get(0));
         }
-
     @Test
     void testUploadFile_userNotFound() {
         MockMultipartFile mockFile = new MockMultipartFile("file", "test.pdf", "application/pdf", "Hello World".getBytes());
